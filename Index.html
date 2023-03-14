@@ -1,0 +1,351 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Wyn Dashboards</title>
+    <base href="/" />
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width,maximum-scale=1.0,initial-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+
+    <!--Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"
+          crossorigin="anonymous">
+
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/1.1.2/js/bootstrap-multiselect.min.js" integrity="sha512-lxQ4VnKKW7foGFV6L9zlSe+6QppP9B2t+tMMaV4s4iqAv4iHIyXED7O+fke1VeLNaRdoVkVt8Hw/jmZ+XocsXQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/1.1.2/css/bootstrap-multiselect.min.css" integrity="sha512-fZNmykQ6RlCyzGl9he+ScLrlU0LWeaR6MO/Kq9lelfXOw54O63gizFMSD5fVgZvU1YfDIc6mxom5n60qJ1nCrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+
+    <!-- Bootstrap Toggle Switch CSS & JS -->
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
+    <!--HighlightJS-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@5.9.55/css/materialdesignicons.min.css" />
+
+    <script src="./node_modules/@grapecity/wyn-integration/build/WynIntegration.js"></script>
+
+    <script>
+
+        //function readCookie(name) {
+        //    var nameEQ = name + '=';
+        //    var ca = document.cookie.split(';');
+        //    for (var i = 0; i < ca.length; i++) {
+        //        var c = ca[i];
+        //        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        //        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        //    }
+        //    return null;
+        //}
+
+        //let head = document.head;
+        //var wynServerUrl = readCookie("wynurl");
+        //var wynVersion = readCookie("wynversion");
+
+        //let wynVendorCss = document.createElement('link');
+        //wynVendorCss.rel = 'stylesheet';
+        //wynVendorCss.type = 'text/css';
+        //wynVendorCss.href = wynServerUrl + '/api/PluginAssets/dashboards-' + wynVersion + '/dashboard.vendor.css';
+        //wynVendorCss.media = 'all';
+        //head.appendChild(wynVendorCss);
+
+        //let wynBlueCss = document.createElement('link');
+        //wynBlueCss.rel = 'stylesheet';
+        //wynBlueCss.type = 'text/css';
+        //wynBlueCss.href = wynServerUrl + '/api/PluginAssets/dashboards-' + wynVersion + '/dashboard.app.blue.css';
+        //wynBlueCss.media = 'all';
+        //head.appendChild(wynBlueCss);
+
+        //let wynRedCss = document.createElement('link');
+        //wynRedCss.rel = 'stylesheet';
+        //wynRedCss.type = 'text/css';
+        //wynRedCss.href = wynServerUrl + '/api/PluginAssets/dashboards-' + wynVersion + '/dashboard.app.red.css';
+        //wynRedCss.media = 'all';
+        //head.appendChild(wynRedCss);
+
+        //let minimalBlueCss = document.createElement('link');
+        //minimalBlueCss.rel = 'stylesheet';
+        //minimalBlueCss.type = 'text/css';
+        //minimalBlueCss.href = wynServerUrl + '/api/PluginAssets/dashboards-' + wynVersion + '/dashboard.app.minimal-blue.css';
+        //minimalBlueCss.media = 'all';
+        //head.appendChild(minimalBlueCss);
+
+        //let appWrapperCss = document.createElement('link');
+        //appWrapperCss.rel = 'stylesheet';
+        //appWrapperCss.type = 'text/css';
+        //appWrapperCss.href = wynServerUrl + '/api/PluginAssets/dashboards-' + wynVersion + '/dashboard.appWrapper.css';
+        //appWrapperCss.media = 'all';
+        //head.appendChild(appWrapperCss);
+
+        //let wynPolyfills = document.createElement("script");
+        //wynPolyfills.setAttribute("src", wynServerUrl + "/api/lib/polyfills.js?ver=" + wynVersion);
+        //wynPolyfills.setAttribute("async", "false");
+        //head.appendChild(wynPolyfills);
+
+        //let wynCommon = document.createElement("script");
+        //wynCommon.setAttribute("src", wynServerUrl + "/api/PluginAssets/dashboards-" + wynVersion + "/dashboard.libs.common.js");
+        //wynCommon.setAttribute("async", "false");
+        //head.appendChild(wynCommon);
+
+        //let wynExtension = document.createElement("script");
+        //wynExtension.setAttribute("src", wynServerUrl + "/api/PluginAssets/dashboards-" + wynVersion + "/dashboard.libs.extension.js");
+        //wynExtension.setAttribute("async", "false");
+        //head.appendChild(wynExtension);
+
+        //let wynSheet = document.createElement("script");
+        //wynSheet.setAttribute("src", wynServerUrl + "/api/PluginAssets/dashboards-" + wynVersion + "/dashboard.libs.sheet.js");
+        //wynSheet.setAttribute("async", "false");
+        //head.appendChild(wynSheet);
+
+        //let wynChart = document.createElement("script");
+        //wynChart.setAttribute("src", wynServerUrl + "/api/PluginAssets/dashboards-" + wynVersion + "/dashboard.libs.chart.js");
+        //wynChart.setAttribute("async", "false");
+        //head.appendChild(wynChart);
+
+        //let wynApp = document.createElement("script");
+        //wynApp.setAttribute("src", wynServerUrl + "/api/PluginAssets/dashboards-" + wynVersion + "/dashboard.app.js");
+        //wynApp.setAttribute("async", "false");
+        //head.appendChild(wynApp);
+
+    </script>
+
+    <script src="scripts/site.js"></script>
+    <link rel="stylesheet" href="styles/index.css" />
+
+</head>
+
+<body onload="pageLoad()">
+    <div class="container-fluid">
+        <div class="row header">
+            <div id="pageHeader" class="col-md-6">
+                <button id="btnBack">
+                    <i class="mdi mdi-arrow-left"></i>Home
+                </button>
+                <div id="wynHeader">
+                    <img src="images/dashboard.svg" alt="dashboards" />
+                    Wyn Dashboards
+                </div>
+                <div id="dashboardTitle">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button id="btnViewer" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewerModal">
+                    Customize Viewer
+                </button>
+            </div>
+            <div class="col-md-2">
+                <button id="btnDesigner" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#designerModal">
+                    Customize Designer
+                </button>
+            </div>
+            <div class="col-md-2 showCodeDiv">
+                <div class="rightPanel">
+                    <button id="btnSwitch" name="SwitchView" onclick="cmdButtonClick(this)">Design</button>
+                    <button id="btnShowCode" title="View Code">
+                        <i class="mdi mdi-xml"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="page1">
+            <div class="row contentDiv">
+                <div class="col-md-2 categoryDiv">
+                    <div class="createNewDiv">
+                        <button id="btnCreateNew" class="createNew" name="NewDoc" onclick="cmdButtonClick(this)">
+                            <i class="mdi mdi-plus-thick"></i> Create New
+                        </button>
+                    </div>
+                    <ul id="categoryList"></ul>
+                </div>
+                <div class="col-md-10 cardsContainer">
+                    <div id="cardList" class="card-columns">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="page2">
+            <div>
+                <div id="wynroot"></div>
+            </div>
+        </div>
+        <!-- Designer Modal -->
+        <div class="modal fade" id="designerModal" tabindex="-1" aria-labelledby="designerModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Customize Designer</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row inputDiv">
+                                <div class="col-md-6">
+                                    <label id="toolbarLabel">Show Toolbar</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="switch">
+                                        <input type="checkbox" id="showToolbar" checked="checked" name="showToolbar" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row inputDiv">
+                                <div class="col-md-6">
+                                    <label id="showInspectorLabel">Show Inspector</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="switch">
+                                        <input type="checkbox" id="showInspector" checked="checked" name="showInspector" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row inputDiv">
+                                <div class="col-md-6">
+                                    <label id="showDataBindingPanelLabel">Show DataBinding Panel</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="switch">
+                                        <input type="checkbox" id="showDataBindingPanel" checked="checked" name="showDataBindingPanel" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row inputDiv">
+                                <div class="col-md-6">
+                                    <label id="disableChangeDatasetLabel">Disable Change Dataset</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="switch">
+                                        <input type="checkbox" id="disableChangeDataset" name="disableChangeDataset" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row inputDiv">
+                                <div class="col-md-6">
+                                    <label id="componentCategoriesLabel">Component Categories</label>
+                                </div>
+                                <div id="componentCategoriesDiv" class="col-md-6">                                    
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="charts" name="option1" value="charts" checked>
+                                        <label class="form-check-label">Charts</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="visual" name="option2" value="visual" checked>
+                                        <label class="form-check-label">Visual</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="component" name="option3" value="component" checked>
+                                        <label class="form-check-label">Component</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="slicers" name="option4" value="slicers" checked>
+                                        <label class="form-check-label">Slicers</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="gallery" name="option5" value="gallery" checked>
+                                        <label class="form-check-label">Gallery</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="wizard" name="option6" value="wizard" checked>
+                                        <label class="form-check-label">Wizard</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnSaveDesignerFeatures" onclick="btnSaveDesignerFeaturesClick()">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Viewer Modal -->
+        <div class="modal fade" id="viewerModal" tabindex="-1" aria-labelledby="viewerModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Customize Viewer</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row inputDiv">
+                                <div class="col-md-6">
+                                    <label id="toolbarLabelViewer">Show Toolbar</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="switch">
+                                        <input type="checkbox" id="showToolbarViewer" checked="checked" name="showToolbar" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row inputDiv">
+                                <div class="col-md-6">
+                                    <label id="showHelpLabelViewer">Show Help Button</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="switch">
+                                        <input type="checkbox" id="showHelpButtonViewer" checked="checked" name="showHelpButtonViewer" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row inputDiv">
+                                <div class="col-md-6">
+                                    <label id="disableAnimationLabelViewer">Disable Animation</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="switch">
+                                        <input type="checkbox" id="disableAnimationViewer" name="disableAnimationViewer" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row inputDiv">
+                                <div class="col-md-6">
+                                    <label id="disableAutoScrollLabel">Disable AutoScroll</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="switch">
+                                        <input type="checkbox" id="disableAutoScrollViewer" name="disableAutoScrollViewer" />
+                                        <span class="slider round"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" id="btnSaveViewerFeatures" onclick="btnSaveViewerFeaturesClick()">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="codePanel" class="hidePanel">
+            <button id="btnCopyCode">
+                <i class="mdi mdi-content-copy"></i> Copy Code
+            </button>
+            <pre id="codePre">
+            <code id="codeElement">                        
+            </code>
+            </pre>
+        </div>
+    </div>
+
+</body>
+</html>
