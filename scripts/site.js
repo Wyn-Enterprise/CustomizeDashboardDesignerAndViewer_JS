@@ -494,13 +494,7 @@ function initializeDesigner(docId) {
         dashboardId: docId,
         lng: 'en',
         token: token,
-        features: {
-            toolbar: designerFeatures['toolbar'],
-            showInspector: designerFeatures['showInspector'],
-            showDataBindingPanel: designerFeatures['showDataBindingPanel'],
-            disableChangeDataset: designerFeatures['disableChangeDataset'],
-            componentCategories: designerFeatures['componentCategories']
-        }
+        features: designerFeatures
         // for v5.0, v5.1 ignore
         //version: '5.0.21782.0',
     }, '#wynroot').then(ins => {
