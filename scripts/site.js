@@ -23,7 +23,7 @@ function btnLogin_click() {
     var re = /\/$/;
     wynUrl = wynUrl.replace(re, "");
     username = document.getElementById("username").value;
-   
+
     var pswd = document.getElementById("pswd").value;
     if (username === '' || pswd === '') {
         alert("Username and/or Password cannot be empty. Please fill all the fields...!!!!!!");
@@ -368,23 +368,7 @@ function showDashboards(category) {
 }
 
 function refreshList() {
-    var dashboards = getDashboardsList();
-
-    var ul = document.getElementById("wynList");
-    while (ul.firstChild) {
-        ul.removeChild(ul.firstChild);
-    }
-    dashboards.then(function (results) {
-        docDictionary = results;
-
-        for (var i = 0; i < results.length; i++) {
-            var dashboard = results[i];
-            var li = document.createElement('li');
-            li.setAttribute("class", "list-group-item");
-            li.appendChild(document.createTextNode(dashboard.name));
-            ul.appendChild(li);
-        }
-    });
+    loadDashboardList();
 }
 
 //Command Buttons Click
@@ -465,7 +449,7 @@ function cmdButtonClick(e) {
             break;
         case "RefreshList":
             cmdType = "refresh";
-            //refreshList();
+            refreshList();
             break;
         case "SwitchView":
             docId = selectedDocument.id;
@@ -489,12 +473,18 @@ function initializeDesigner(docId) {
     if (viewer)
         viewer.destroy();
 
+    let documentId = docId;
+
     wynIntegration.createDashboardDesigner({
         baseUrl: wynUrl,
         dashboardId: docId,
         lng: 'en',
         token: token,
-        features: designerFeatures
+        features: designerFeatures,
+        onSave: (docName, id) => {
+            if (documentId == "")
+                refreshList();
+        }
         // for v5.0, v5.1 ignore
         //version: '5.0.21782.0',
     }, '#wynroot').then(ins => {
