@@ -23,9 +23,7 @@ function btnLogin_click() {
     var re = /\/$/;
     wynUrl = wynUrl.replace(re, "");
     username = document.getElementById("username").value;
-    //var version = document.getElementById("version").value;
-    //document.cookie = "wynversion=" + version;
-
+   
     var pswd = document.getElementById("pswd").value;
     if (username === '' || pswd === '') {
         alert("Username and/or Password cannot be empty. Please fill all the fields...!!!!!!");
@@ -83,7 +81,6 @@ function pageLoad() {
     username = readCookie("username");
     wynUrl = readCookie("wynurl");
 
-    //console.log(window.wynIntegration);
     wynIntegration = WynIntegration.WynIntegration;
 
     if (token == "" || token == undefined) {
@@ -110,12 +107,6 @@ function pageLoad() {
 
     loadCategories();
     loadDashboardList();
-
-    //$('#designerModal').on('shown.bs.modal', function () {
-    //    $('#componentCategories').multiselect({
-    //        includeSelectAllOption: true
-    //    });
-    //});
 }
 
 function btnSaveDesignerFeaturesClick() {
@@ -124,7 +115,6 @@ function btnSaveDesignerFeaturesClick() {
     let showDataBindingPanel = $("#showDataBindingPanel")[0].checked;
     let disableChangeDataset = $("#disableChangeDataset")[0].checked;
 
-    debugger;
     let componentCategories = $("#componentCategoriesDiv input:checkbox:checked").map(function () {
         return $(this).val();
     }).get();
@@ -142,13 +132,11 @@ function btnSaveDesignerFeaturesClick() {
 
 function btnSaveViewerFeaturesClick() {
     let showToolbar = $("#showToolbarViewer")[0].checked ? 'show' : 'hide';
-    let showHelpButton = $("#showHelpButtonViewer")[0].checked;
     let disableAnimation = $("#disableAnimationViewer")[0].checked;
     let disableAutoScroll = $("#disableAutoScrollViewer")[0].checked;
 
     viewerFeatures = {
         toolbar: showToolbar,
-        showHelpButton: showHelpButton,
         disableAnimation: disableAnimation,
         disableAutoScroll: disableAutoScroll
     };
@@ -287,6 +275,8 @@ function backBtn_click() {
     document.querySelector("#dashboardTitle").style.display = "none";
     document.querySelector("#dashboardTitle").innerHTML = "";
     document.querySelector("#codePanel").className = "hidePanel";
+    document.querySelector("#btnViewer").style.display = "inline-block";
+    document.querySelector("#btnDesigner").style.display = "inline-block";
 
     if (viewer)
         viewer.destroy();
@@ -404,7 +394,8 @@ function cmdButtonClick(e) {
     switch (e.name) {
         case "ViewDoc":
             cmdType = "view";
-
+            document.querySelector("#btnViewer").style.display = "none";
+            document.querySelector("#btnDesigner").style.display = "none";
             var docName = e.parentElement.parentElement.getElementsByTagName("span")[0].innerText;
             selectedDocument = docDictionary.find(x => x.title === docName);
 
@@ -439,6 +430,8 @@ function cmdButtonClick(e) {
             break;
         case "EditDoc":
             cmdType = "edit";
+            document.querySelector("#btnViewer").style.display = "none";
+            document.querySelector("#btnDesigner").style.display = "none";
             var docName = e.parentElement.parentElement.getElementsByTagName("span")[0].innerText;
             selectedDocument = docDictionary.find(x => x.title === docName);
             document.querySelector("#dashboardTitle").innerHTML = docName;
@@ -450,7 +443,8 @@ function cmdButtonClick(e) {
             break;
         case "NewDoc":
             cmdType = "create";
-
+            document.querySelector("#btnViewer").style.display = "none";
+            document.querySelector("#btnDesigner").style.display = "none";
             document.querySelector("#page2").style.display = "block";
             document.querySelector("#page1").style.display = "none";
             document.querySelector("#wynroot").style.display = "block";

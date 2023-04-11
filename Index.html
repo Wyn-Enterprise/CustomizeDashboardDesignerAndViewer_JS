@@ -37,90 +37,6 @@
 
     <script src="./node_modules/@grapecity/wyn-integration/build/WynIntegration.js"></script>
 
-    <script>
-
-        //function readCookie(name) {
-        //    var nameEQ = name + '=';
-        //    var ca = document.cookie.split(';');
-        //    for (var i = 0; i < ca.length; i++) {
-        //        var c = ca[i];
-        //        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-        //        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-        //    }
-        //    return null;
-        //}
-
-        //let head = document.head;
-        //var wynServerUrl = readCookie("wynurl");
-        //var wynVersion = readCookie("wynversion");
-
-        //let wynVendorCss = document.createElement('link');
-        //wynVendorCss.rel = 'stylesheet';
-        //wynVendorCss.type = 'text/css';
-        //wynVendorCss.href = wynServerUrl + '/api/PluginAssets/dashboards-' + wynVersion + '/dashboard.vendor.css';
-        //wynVendorCss.media = 'all';
-        //head.appendChild(wynVendorCss);
-
-        //let wynBlueCss = document.createElement('link');
-        //wynBlueCss.rel = 'stylesheet';
-        //wynBlueCss.type = 'text/css';
-        //wynBlueCss.href = wynServerUrl + '/api/PluginAssets/dashboards-' + wynVersion + '/dashboard.app.blue.css';
-        //wynBlueCss.media = 'all';
-        //head.appendChild(wynBlueCss);
-
-        //let wynRedCss = document.createElement('link');
-        //wynRedCss.rel = 'stylesheet';
-        //wynRedCss.type = 'text/css';
-        //wynRedCss.href = wynServerUrl + '/api/PluginAssets/dashboards-' + wynVersion + '/dashboard.app.red.css';
-        //wynRedCss.media = 'all';
-        //head.appendChild(wynRedCss);
-
-        //let minimalBlueCss = document.createElement('link');
-        //minimalBlueCss.rel = 'stylesheet';
-        //minimalBlueCss.type = 'text/css';
-        //minimalBlueCss.href = wynServerUrl + '/api/PluginAssets/dashboards-' + wynVersion + '/dashboard.app.minimal-blue.css';
-        //minimalBlueCss.media = 'all';
-        //head.appendChild(minimalBlueCss);
-
-        //let appWrapperCss = document.createElement('link');
-        //appWrapperCss.rel = 'stylesheet';
-        //appWrapperCss.type = 'text/css';
-        //appWrapperCss.href = wynServerUrl + '/api/PluginAssets/dashboards-' + wynVersion + '/dashboard.appWrapper.css';
-        //appWrapperCss.media = 'all';
-        //head.appendChild(appWrapperCss);
-
-        //let wynPolyfills = document.createElement("script");
-        //wynPolyfills.setAttribute("src", wynServerUrl + "/api/lib/polyfills.js?ver=" + wynVersion);
-        //wynPolyfills.setAttribute("async", "false");
-        //head.appendChild(wynPolyfills);
-
-        //let wynCommon = document.createElement("script");
-        //wynCommon.setAttribute("src", wynServerUrl + "/api/PluginAssets/dashboards-" + wynVersion + "/dashboard.libs.common.js");
-        //wynCommon.setAttribute("async", "false");
-        //head.appendChild(wynCommon);
-
-        //let wynExtension = document.createElement("script");
-        //wynExtension.setAttribute("src", wynServerUrl + "/api/PluginAssets/dashboards-" + wynVersion + "/dashboard.libs.extension.js");
-        //wynExtension.setAttribute("async", "false");
-        //head.appendChild(wynExtension);
-
-        //let wynSheet = document.createElement("script");
-        //wynSheet.setAttribute("src", wynServerUrl + "/api/PluginAssets/dashboards-" + wynVersion + "/dashboard.libs.sheet.js");
-        //wynSheet.setAttribute("async", "false");
-        //head.appendChild(wynSheet);
-
-        //let wynChart = document.createElement("script");
-        //wynChart.setAttribute("src", wynServerUrl + "/api/PluginAssets/dashboards-" + wynVersion + "/dashboard.libs.chart.js");
-        //wynChart.setAttribute("async", "false");
-        //head.appendChild(wynChart);
-
-        //let wynApp = document.createElement("script");
-        //wynApp.setAttribute("src", wynServerUrl + "/api/PluginAssets/dashboards-" + wynVersion + "/dashboard.app.js");
-        //wynApp.setAttribute("async", "false");
-        //head.appendChild(wynApp);
-
-    </script>
-
     <script src="scripts/site.js"></script>
     <link rel="stylesheet" href="styles/index.css" />
 
@@ -129,7 +45,7 @@
 <body onload="pageLoad()">
     <div class="container-fluid">
         <div class="row header">
-            <div id="pageHeader" class="col-md-6">
+            <div id="pageHeader" class="col-md-8">
                 <button id="btnBack">
                     <i class="mdi mdi-arrow-left"></i>Home
                 </button>
@@ -140,17 +56,15 @@
                 <div id="dashboardTitle">
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <button id="btnViewer" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewerModal">
                     Customize Viewer
                 </button>
-            </div>
-            <div class="col-md-2">
                 <button id="btnDesigner" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#designerModal">
                     Customize Designer
                 </button>
             </div>
-            <div class="col-md-2 showCodeDiv">
+            <div class="col-md-1 showCodeDiv">
                 <div class="rightPanel">
                     <button id="btnSwitch" name="SwitchView" onclick="cmdButtonClick(this)">Design</button>
                     <button id="btnShowCode" title="View Code">
@@ -238,7 +152,7 @@
                                 <div class="col-md-6">
                                     <label id="componentCategoriesLabel">Component Categories</label>
                                 </div>
-                                <div id="componentCategoriesDiv" class="col-md-6">                                    
+                                <div id="componentCategoriesDiv" class="col-md-6">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" id="charts" name="option1" value="charts" checked>
                                         <label class="form-check-label">Charts</label>
@@ -294,18 +208,7 @@
                                         <span class="slider round"></span>
                                     </label>
                                 </div>
-                            </div>
-                            <div class="row inputDiv">
-                                <div class="col-md-6">
-                                    <label id="showHelpLabelViewer">Show Help Button</label>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="switch">
-                                        <input type="checkbox" id="showHelpButtonViewer" checked="checked" name="showHelpButtonViewer" />
-                                        <span class="slider round"></span>
-                                    </label>
-                                </div>
-                            </div>
+                            </div>                           
                             <div class="row inputDiv">
                                 <div class="col-md-6">
                                     <label id="disableAnimationLabelViewer">Disable Animation</label>
@@ -329,23 +232,23 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" id="btnSaveViewerFeatures" onclick="btnSaveViewerFeaturesClick()">Save changes</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" id="btnSaveViewerFeatures" onclick="btnSaveViewerFeaturesClick()">Save changes</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div id="codePanel" class="hidePanel">
-            <button id="btnCopyCode">
-                <i class="mdi mdi-content-copy"></i> Copy Code
-            </button>
-            <pre id="codePre">
-            <code id="codeElement">                        
+            <div id="codePanel" class="hidePanel">
+                <button id="btnCopyCode">
+                    <i class="mdi mdi-content-copy"></i> Copy Code
+                </button>
+                <pre id="codePre">
+                <code id="codeElement">                        
             </code>
             </pre>
+            </div>
         </div>
     </div>
-
 </body>
 </html>
